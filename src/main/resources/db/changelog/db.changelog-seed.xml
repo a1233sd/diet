@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="5-seed-users" author="VVM">
+        <insert tableName="users">
+            <column name="user_name" value="John Doe"/>
+            <column name="email" value="johndoe@example.com"/>
+            <column name="age" value="30"/>
+            <column name="weight" value="75.5"/>
+            <column name="height" value="175"/>
+            <column name="goal" value="MAINTAIN_WEIGHT"/>
+            <column name="daily_calories" value="2500"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6-seed-dishes" author="VVM">
+        <insert tableName="dish">
+            <column name="dish_name" value="Salad"/>
+            <column name="calories" value="150"/>
+            <column name="proteins" value="5"/>
+            <column name="fats" value="7"/>
+            <column name="carbohydrates" value="20"/>
+        </insert>
+        <insert tableName="dish">
+            <column name="dish_name" value="Chicken Breast"/>
+            <column name="calories" value="200"/>
+            <column name="proteins" value="30"/>
+            <column name="fats" value="5"/>
+            <column name="carbohydrates" value="0"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="7-seed-meals" author="VVM">
+        <insert tableName="meal">
+            <column name="date" valueDate="2025-03-25"/>
+            <column name="user_id" valueNumeric="1"/>
+            <column name="total_calories" valueNumeric="350"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="8-seed-meal-dish" author="VVM">
+        <insert tableName="meal_dish">
+            <column name="meal_id" valueNumeric="1"/>
+            <column name="dish_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="meal_dish">
+            <column name="meal_id" valueNumeric="1"/>
+            <column name="dish_id" valueNumeric="2"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

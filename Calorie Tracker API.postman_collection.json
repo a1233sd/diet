@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "96d98f21-8a40-41d8-a5f2-7f87a44296d7",
+		"name": "Calorie Tracker API",
+		"description": "API for managing users, dishes, meals, and calorie reports.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38970832"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"вфы\",\n  \"email\": \"фыв\",\n  \"age\": 32,\n  \"weight\": 90.5,\n  \"height\": 165,\n  \"goal\": \"MAINTAIN_WEIGHT\"\n}"
+						},
+						"url": "http://localhost:8080/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/users/{{userId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dishes",
+			"item": [
+				{
+					"name": "Create Dish",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dishName\": \"ыыыыыы\",\n  \"calories\": 150,\n  \"proteins\": 5,\n  \"fats\": 7,\n  \"carbohydrates\": 20\n}"
+						},
+						"url": "http://localhost:8080/dishes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dish by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/dishes/{{dishId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meals",
+			"item": [
+				{
+					"name": "Add Meal for User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"date\": \"2025-03-25\",\n  \"dishes\": [\n    { \"id\": 1 },\n    { \"id\": 2 }\n  ],\n  \"totalCalories\": 350\n}"
+						},
+						"url": "http://localhost:8080/meals/users/{{userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Meals by User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/meals/users/{{userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Meal by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/meals/{{mealId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Get Daily Calories Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/reports/daily/{{userId}}/{{date}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Calorie Limit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/reports/check/{{userId}}/{{date}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Meal History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/reports/history/{{userId}}"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
